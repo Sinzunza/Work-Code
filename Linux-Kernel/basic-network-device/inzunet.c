@@ -1,5 +1,6 @@
 // Day 1 - Basic network device. We will create a virtual network device which is more basic and easier to implement than a real network device.
 // Day 2 - Adds atomic counters and /proc stats
+// Day 3 - Add fake rx injection so we can do receiving logic
 #include <linux/module.h>
 #include <linux/kernel.h>
 #include <linux/netdevice.h> // provides net_device struct and related functionality
@@ -9,6 +10,7 @@
 #include <linux/proc_fs.h> // provides proc_create and remove_proc_entry, api for creating and managing /proc filesystem entries
 #include <linux/seq_file.h> // provides seq_file, api for seq_file which is convenient way for kernel modules to implement readable /proc or /sys files
 #include <linux/atomic.h> // provides atomic code, api for atomic operations which allow safely reading, writing, and modifying concurrently without using locks
+#include <linux/timer.h> // provides timer
 // Note: A lot of these header files' code is indirectly included from other already included header files, however, standard is to always include all the
 // header files you are using explicitly.
 
